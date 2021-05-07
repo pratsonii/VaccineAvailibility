@@ -1,4 +1,4 @@
-<nz-alert nzType="info" nzMessage="Vaccine avaibility for Ahmedabad City (18-45 age group)"></nz-alert>
+<nz-alert nzType="info" [nzMessage]='header'></nz-alert>
 
 <nz-alert nzType="error" nzMessage="If slots are available records will be displayed with notification sound... "
   class="margin-top"></nz-alert>
@@ -36,3 +36,7 @@
 <nz-tag [nzColor]="'cyan'" class="margin-top">Created by Pratik Soni</nz-tag>
 
 <ng-template #wait>Wait for refresh</ng-template>
+
+<ng-template #header>
+  <h3>Vaccine avaibility for Ahmedabad City (18-45 age group)</h3>
+</ng-template>
