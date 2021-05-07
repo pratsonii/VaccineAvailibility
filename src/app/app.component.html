@@ -7,6 +7,10 @@
   <i nz-icon nzType="loading" nzTheme="outline"></i> <span> </span> Refreshing in {{counter}} Seconds
 </nz-tag>
 
+<nz-tag nzColor={{notiColor}} class="margin-top" (click)="enableSound()">
+  {{notiAlert}}
+</nz-tag>
+
 <nz-table #headerTable [nzData]="listOfData" [nzFrontPagination]="false" [nzBordered]="true" [nzShowPagination]="false"
   [nzScroll]="{ y: '240px' }" [nzNoResult]="wait" class="margin-top">
   <thead>

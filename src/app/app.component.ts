@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
   title = 'vaccine';
   listOfData: any;
   counter = 30;
+  notiAlert = 'Click here to enable Notification Sound';
+  notiColor = 'error';
+
   constructor (private service: AppServiceService) {
     this.service.subscribeTodata();
   }
@@ -34,6 +37,11 @@ export class AppComponent implements OnInit {
 
     const fixedValue = 29;
     this.service.subscribeTodata().pipe(switchMap(() => interval(1000))).subscribe(val => this.counter = fixedValue - val);
+  }
+
+  enableSound() {
+    this.notiAlert = 'Notification Sound Enabled';
+    this.notiColor = 'success';
   }
 }
 interface ItemData {
