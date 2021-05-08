@@ -5,7 +5,7 @@
 </nz-tag>
 
 <nz-tag nzColor={{notiColor}} class="margin-top" (click)="enableSound()">
-  {{notiAlert}}
+  {{notiAlert}} <span> </span> <i nz-icon nzType="sound" nzTheme="outline"></i>
 </nz-tag>
 
 <nz-table #headerTable [nzData]="listOfData" [nzFrontPagination]="false" [nzBordered]="true" [nzShowPagination]="false"
