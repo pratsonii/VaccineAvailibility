@@ -1,10 +1,7 @@
 <nz-alert nzType="info" [nzMessage]='header'></nz-alert>
 
-<nz-alert nzType="error" nzMessage="If slots are available then records will be displayed with notification sound... "
-  class="margin-top"></nz-alert>
-
 <nz-tag [nzColor]="'success'" class="margin-top">
-  <i nz-icon nzType="loading" nzTheme="outline"></i> <span> </span> Refreshing in {{counter}} Seconds
+  <i nz-icon nzType="loading" nzTheme="outline"></i> <span> </span> Auto-refresh in {{counter}} Seconds
 </nz-tag>
 
 <nz-tag nzColor={{notiColor}} class="margin-top" (click)="enableSound()">
@@ -12,7 +9,7 @@
 </nz-tag>
 
 <nz-table #headerTable [nzData]="listOfData" [nzFrontPagination]="false" [nzBordered]="true" [nzShowPagination]="false"
-  [nzScroll]="{ y: '240px' }" [nzNoResult]="wait" class="margin-top">
+  [nzScroll]="{ y: '240px' }" [nzNoResult]="wait" class="margin-top" [nzLoading]="tableRefresh">
   <thead>
     <tr>
       <th nzWidth="90px">Pincode</th>
@@ -35,7 +32,7 @@
 
 <nz-tag [nzColor]="'cyan'" class="margin-top">Created by Pratik Soni</nz-tag>
 
-<ng-template #wait>Wait for refresh</ng-template>
+<ng-template #wait>No slots available at the moment</ng-template>
 
 <ng-template #header>
   <h3>Vaccine avaibility for Ahmedabad City (18-45 age group)</h3>

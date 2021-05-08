@@ -15,13 +15,15 @@ export class AppComponent implements OnInit {
   counter = 30;
   notiAlert = 'Click here to enable Notification Sound';
   notiColor = 'error';
+  sound: any;
+  tableRefresh = false;
 
   constructor (private service: AppServiceService) {
     this.service.subscribeTodata();
   }
 
   ngOnInit(): void {
-    const sound = new Howl({
+    this.sound = new Howl({
       src: ['../assets/mp3/sound.mp3']
     });
 
@@ -31,8 +33,14 @@ export class AppComponent implements OnInit {
       this.counter = 30;
 
       if (this.listOfData && this.listOfData.length > 0) {
-        sound.play();
+        this.sound.play();
       }
+
+      this.tableRefresh = true;
+      setTimeout(() => {
+        this.tableRefresh = false;
+      }, 1500);
+
     }));
 
     const fixedValue = 29;
@@ -42,10 +50,6 @@ export class AppComponent implements OnInit {
   enableSound() {
     this.notiAlert = 'Notification Sound Enabled';
     this.notiColor = 'success';
+    this.sound.play();
   }
-}
-interface ItemData {
-  name: string;
-  age: number;
-  address: string;
 }
